@@ -13,28 +13,73 @@
 </head>
 <body>
 
+<audio id = "unforgiven2_audio" >
+ 		 <source src="assets/audio/unforgiven2.mp3" type="audio/mpeg">
+		</audio>
+
+
+<audio id = "maps_audio" >
+ 		 <source src="assets/audio/maps.mp3" type="audio/mpeg">
+		</audio>
+
+<audio id = "Arctic_Monkeys_audio" >
+ 		 <source src="assets/audio/arcticMonkeys.mp3" type="audio/mpeg">
+		</audio>
+
+<audio id = "danceofdeath_audio" >
+ 		 <source src="assets/audio/danceofdeath.mp3" type="audio/mpeg">
+		</audio>
+
+
+<audio id = "mercy_audio" >
+ 		 <source src="assets/audio/mercy.mp3" type="audio/mpeg">
+		</audio>
+
+<audio id = "firebird_audio" >
+ 		 <source src="assets/audio/firebird.mp3" type="audio/mpeg">
+		</audio>
+
+<audio id = "morethanafeeling_audio" >
+ 		 <source src="assets/audio/morethanafeeling.mp3" type="audio/mpeg">
+		</audio>
+
+<audio id = "miami82_audio" >
+ 		 <source src="assets/audio/miami82.mp3" type="audio/mpeg">
+		</audio>
+
+
+
 <div class="container-fluid">
 
 	<div class="row" id="main_div">
 
-		<h1 id= "title"> Music Themed Trivia ! </h1>
+		<h1 id= "title"> Music Themed Trivia ! </h1> <br>
+
+		<h1 id= "Instructions"> Enjoy the tunes and test your music knowledge </h1>
 
 			<div class = "col-sm-10" id = "Trivia_div">
 
 				<div id="time_remaining"> </div>
 				<div id="question"> </div>
-				<div id="answer_opt_1"> </div>
-				<div id="answer_opt_2"> </div>
-				<div id="answer_opt_3"> </div>
-				<div id="answer_opt_4"> </div>
-				
-				
-				<div class="btn-group">
+
+				<div id="answers_div">
+					<div class = "clicked" id="answer_opt_1"> </div>
+					<div class = "clicked" id="answer_opt_2"> </div>
+					<div  class = "clicked" id="answer_opt_3"> </div>
+					<div class = "clicked" id="answer_opt_4"> </div>
+
+		 		</div>
+
+			</div>
+
+			<div class="btn-group">
 			  			<button type="button" id = "start_button" class="btn btn-default"  aria-haspopup="true" aria-expanded="	false">
 			    		Start
 			  			</button>
 				</div>
-			</div>
+
+
+
 	</div>
 
 </div>

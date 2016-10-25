@@ -1,41 +1,90 @@
-body {
-	/*background-image: url("../images/batman_background_1.jpg");*/
-	background-color: #cccccc;
+
+@keyframes animatedBackground {
+	from { background-position: 0 0; }
+	to { background-position: 100% 0; }
+}
+
+body	{ 
+	/*width: 560px; 
+	height: 1000px;*/
+	background-image: url("../images/background_image_3.jpg");
+	/*background-position: 0px 0px;*/
+	/*background-repeat: repeat-x;*/
+
+	animation: animatedBackground 200s linear infinite;
+
 	font-family: Oldtown,fantasy;
 	color: black;
-	margin: 0 auto;
-	
+	/*margin: 0 auto;*/
 
+	/*background-image: url("../images/background_image_1.jpg");*/
+
+	color : teal;
 }
+
+
+
+
+
 
 #main_div
 
-{
-	height: 600px;
+{	
+	background-color: transparent;
+	height: 500px;
 	width: 900px;
-	border: solid 3px black;
+	/*border: solid 3px black;*/
 	text-align: center;
 	padding: 5px;
 	margin-left: 140px;
+	
 }
 
 #Trivia_div
 
 {
-	height: 500px;
+	height: 400px;
 	width: 800px;
-	border: solid 3px black;
+	border: solid 3px purple;
 	text-align: center;
 	padding: 5px;
 	margin-left: 50px;
 	margin-right: 50px;
+	color: white;
 }
 
 #question,#answer_opt_1,#answer_opt_2,#answer_opt_3,
 #answer_opt_4, #time_remaining
 {
 
+	height: 40px;
+	
+
+}
+
+/*#answer_opt_1: hover,#answer_opt_2:hover,#answer_opt_3: hover,
+#answer_opt_4: hover 
+{
+
+	background-color: yellow;
+}*/
+
+/*#answer_opt_1: hover
+{
+
+	background-color: yellow;
+}
+*/
+/*#answers_div:hover #answer_opt_1{
+
+	background-color: yellow;
+}*/
+
+#title,#Instructions
+{
+
 	height: 50px;
+	font-size: 30px;
 	
 
 }
