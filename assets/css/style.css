@@ -8,8 +8,8 @@ body	{
 	/*width: 560px; 
 	height: 1000px;*/
 	background-image: url("../images/background_image_3.jpg");
-	/*background-position: 0px 0px;*/
-	/*background-repeat: repeat-x;*/
+	background-position: 0px 0px;
+	background-repeat: repeat-x;
 
 	animation: animatedBackground 200s linear infinite;
 
@@ -19,11 +19,8 @@ body	{
 
 	/*background-image: url("../images/background_image_1.jpg");*/
 
-	color : teal;
+	color : #00cc66 ;
 }
-
-
-
 
 
 
@@ -53,14 +50,37 @@ body	{
 	color: white;
 }
 
+#answers_div 
+{
+
+	background-color: black;
+}
+
 #question,#answer_opt_1,#answer_opt_2,#answer_opt_3,
 #answer_opt_4, #time_remaining
 {
 
 	height: 40px;
+	font-size: 20px;
+	color: teal
 	
 
 }
+
+#question 
+
+{
+	color: white;
+	font-size: 25px;
+}
+
+#time_remaining
+
+{
+	color: yellow;
+
+}
+
 
 /*#answer_opt_1: hover,#answer_opt_2:hover,#answer_opt_3: hover,
 #answer_opt_4: hover 
