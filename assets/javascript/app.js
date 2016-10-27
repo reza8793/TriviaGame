@@ -3,17 +3,15 @@ var i  = 0;
 var k = 0;
 
 var thisAttributeId;
-var thisAttributeClass_1;
-var thisAttributeClass_2;
+var thisAttributeClass;
 
-//var y;
 
 var question_one;
 var question_after;
 var counter;
 var counterAnswerCheck;
 var time = 15;
-var timeAnswerCheck = 5;
+var timeAnswerCheck = 2;
 
 var correctAnswer =0;
 var wrongAnswer = 0;
@@ -102,134 +100,6 @@ var question_array = [question_1, question_2, question_3,
 $(document).ready(function(){
 
 	
-	function playSong(x) {
-
-	if (x === 0 )
-
-	{		var audio = document.getElementById("closer_audio");
-			audio.play();
-	}
-	if (x === 1 )
-
-	{		var audio = document.getElementById("maps_audio")
-			audio.play();
-	}
-
-	if (x === 2 )
-
-	{		var audio = document.getElementById("layla_audio")
-			audio.play();
-	}
-
-	if (x === 3 )
-
-	{		var audio = document.getElementById("miami82_audio");
-			audio.play();
-	}
-	if (x === 4 )
-
-	{		var audio = document.getElementById("danceofdeath_audio")
-			audio.play();
-	}
-
-	if (x === 5 )
-
-	{		var audio = document.getElementById("mercy_audio")
-			audio.play();
-	}
-
-	if (x === 6 )
-
-	{		var audio = document.getElementById("morethanafeeling_audio");
-			audio.play();
-	}
-	if (x === 7 )
-
-	{		var audio = document.getElementById("dreamon_audio")
-			audio.play();
-	}
-
-	if (x === 8 )
-
-	{		var audio = document.getElementById("firebird_audio")
-			audio.play();
-	} 	
-}
- //debugger;
-
- 
-	function show_score () 
-
-	{
-		// if useranswer correct, correct++;
-		// if useranswer wrong, wrong++;
-		// otherwise unanswered, unanswered++
-		stop_running_question_clock();
-			time = 7;
-			counter = setInterval(clock_question,1000);
-		clear_divs();
-
-		$("#time_remaining").html("Time Remaining : " + time + " Seconds");	
-		$("#question").html( "All done, here's how you did!");	
-		$("#answer_opt_1").html( "Correct Answers: " + correctAnswer);	 
-		$("#answer_opt_2").html( "Incorrect Answers: " + wrongAnswer);
-		$("#answer_opt_3").html( "Unanswered: " + unAnswered);
-		$("#answer_opt_4").html( "Play Again?");
-
-		$("#answer_opt_4" ).unbind().on("click", function()
-		
-			{	
-				i = 0; 
-		 		k = 0;  
-		 		correctAnswer =0;
-				wrongAnswer = 0;
-				unAnswered =0;
-				time = 15;
-				
-				clear_divs();
-				//debugger;
-				question_one = setTimeout(first_question,500);
-				question_after = setInterval(question_change, 16000);
-		
-			 });
-	}
-
-	function stop_running_question_answer_clock()
-
-	{
-			clearInterval(clock_answer_check);
-
-	}
-
-	function stop_running ()
-
-			{	
-						clearInterval(question_after);
-			}
-
-	function stop_running_question_clock ()
-
-			{	
-						clearInterval(counter);
-			}		
-			
-	
-
-	
-	function clock_answer_check()
-	{
-		//debugger;
-		timeAnswerCheck--;
-		$("#time_remaining").html("Time Remaining : " + timeAnswerCheck + " Seconds");	
-
-		if (  timeAnswerCheck <= 0)   		
-				{		
-					stop_running_question_answer_clock();
-				}		
-	}
-
-
-
 	function clear_divs()
 
 	{
@@ -259,6 +129,212 @@ $(document).ready(function(){
 		
 	}
 
+
+
+	function playSong(x) {
+
+	if (x === 0 )
+
+	{		var audio = document.getElementById("closer_audio");
+			audio.currentTime = 0;
+			audio.play();
+	}
+	if (x === 1 )
+
+	{		var audio = document.getElementById("maps_audio")
+			audio.currentTime = 0;
+			audio.play();
+	}
+
+	if (x === 2 )
+
+	{		var audio = document.getElementById("layla_audio")
+			audio.currentTime = 0;
+			audio.play();
+	}
+
+	if (x === 3 )
+
+	{		var audio = document.getElementById("miami82_audio");
+			audio.play();
+	}
+	if (x === 4 )
+
+	{		var audio = document.getElementById("danceofdeath_audio")
+			audio.currentTime = 0;
+			audio.play();
+	}
+
+	if (x === 5 )
+
+	{		var audio = document.getElementById("mercy_audio")
+			audio.currentTime = 0;
+			audio.play();
+	}
+
+	if (x === 6 )
+
+	{		var audio = document.getElementById("morethanafeeling_audio");
+			audio.play();
+	}
+	if (x === 7 )
+
+	{		var audio = document.getElementById("dreamon_audio")
+			audio.currentTime = 0;
+			audio.play();
+	}
+
+	if (x === 8 )
+
+	{		var audio = document.getElementById("firebird_audio")
+			audio.currentTime = 0;
+			audio.play();
+	} 	
+}
+
+
+
+	function pauseSong(p) {
+
+	if (p === 0 )
+
+	{		var audio = document.getElementById("closer_audio");
+			audio.pause();
+	}
+	if (p === 1 )
+
+	{		var audio = document.getElementById("maps_audio")
+			audio.pause();
+	}
+
+	if (p === 2 )
+
+	{		var audio = document.getElementById("layla_audio")
+			audio.pause();
+	}
+
+	if (p === 3 )
+
+	{		var audio = document.getElementById("miami82_audio");
+			audio.pause();
+	}
+	if (p === 4 )
+
+	{		var audio = document.getElementById("danceofdeath_audio")
+			audio.pause();
+	}
+
+	if (p === 5 )
+
+	{		var audio = document.getElementById("mercy_audio")
+			audio.pause();
+	}
+
+	if (p === 6 )
+
+	{		var audio = document.getElementById("morethanafeeling_audio");
+			audio.pause();
+	}
+	if (p === 7 )
+
+	{		var audio = document.getElementById("dreamon_audio")
+			audio.pause();
+	}
+
+	if (p === 8 )
+
+	{		var audio = document.getElementById("firebird_audio")
+			audio.pause();
+	} 	
+
+}
+
+ //debugger;
+
+ 
+	function show_score () 
+
+	{
+		// if useranswer correct, correct++;
+		// if useranswer wrong, wrong++;
+		// otherwise unanswered, unanswered++
+		stop_running();
+		stop_running_question_clock();
+		stop_running_question_answer_clock();
+			time = 15;
+			counter = setInterval(clock_question,1000);
+		clear_divs();
+
+		$("#time_remaining").html("Time Remaining : " + time + " Seconds");	
+		$("#question").html( "All done, here's how you did!");	
+		$("#answer_opt_1").html( "Correct Answers: " + correctAnswer);	 
+		$("#answer_opt_2").html( "Incorrect Answers: " + wrongAnswer);
+		$("#answer_opt_3").html( "Unanswered: " + unAnswered);
+		$("#answer_opt_4").html( "Play Again?");
+
+		$("#answer_opt_4" ).unbind().on("click", function()
+		
+			{	
+				i = 0; 
+		 		k = 0;  
+		 		correctAnswer =0;
+				wrongAnswer = 0;
+				unAnswered =0;
+				time = 15;
+				
+				clear_divs();
+				stop_running();
+				stop_running_question_clock();
+				stop_running_question_answer_clock();
+
+
+				//debugger;
+				question_one = setTimeout(first_question,500);
+				question_after = setInterval(question_change, 16000);
+		
+			 });
+	}
+
+	function stop_running_question_answer_clock()
+
+	{
+			clearInterval(counterAnswerCheck); // timer for after user clicks an answer
+
+	}
+
+	function stop_running ()
+
+			{	
+						clearInterval(question_after);
+			}
+
+	function stop_running_question_clock ()
+
+			{	
+						clearInterval(counter); // timer for while the question is displaying
+			}		
+			
+	
+
+	function clock_answer_check()
+	{
+		//debugger;
+		timeAnswerCheck--;
+		$("#time_remaining").html("Time Remaining : " + time + " Seconds");	
+
+		if ( timeAnswerCheck <= 0)   		
+				{		
+					stop_running_question_answer_clock();
+					timeAnswerCheck = 4;
+
+					question_after = setTimeout(question_change, 500);
+					question_after = setInterval(question_change, 16000);
+				}		
+	}
+
+
+
+	
 	function correct_answer_check(x,y)
 
 	{	
@@ -267,31 +343,23 @@ $(document).ready(function(){
 			console.log("wrong Answer is " + wrongAnswer);
 			console.log("unAnswered is " + unAnswered);
 
-			console.log( "You're in click");
-
-			console.log(" x or i at correct_answer_check is " + x);
-
-			console.log(question_array[x].correct_answer);
-
-			console.log(y);
-
 	
 		 	if ( y === (question_array[x].correct_answer)) 
 
 				{	//debugger;
 					correctAnswer++;
-				
+
 				clear_divs();
 
-				// stop_running_question_clock();
+				stop_running_question_clock();
 
-				// //stop_running();
+				stop_running();
 
-				// counterAnswerCheck = setInterval(clock_answer_check,1000);
+				pauseSong(x);
 
-				// stop_running_question_answer_clock();
+				counterAnswerCheck = setInterval(clock_answer_check,1000);
 
-			 		
+				
 				$("#time_remaining").html("Time Remaining : " + time + " Seconds");	
 				$("#question").html("Correct !");
 
@@ -304,6 +372,16 @@ $(document).ready(function(){
 				//alert( "You're in else block");
 				wrongAnswer++;
 				clear_divs();
+				
+				stop_running_question_clock();
+
+				stop_running();
+
+				pauseSong(x);
+
+				counterAnswerCheck = setInterval(clock_answer_check,1000);
+
+
 				$("#time_remaining").html("Time Remaining : " + time + " Seconds");	
 				$("#question").html("Sorry ! You're misguided !");
 				$("#answer_opt_1").html("The correct Answer was : " + question_array[x].correct_answer_value);
@@ -311,7 +389,6 @@ $(document).ready(function(){
 				giphy_selector(x);
 				}
 
-	
 	}
 
 
@@ -322,15 +399,21 @@ $(document).ready(function(){
 		time--;
 		$("#time_remaining").html("Time Remaining : " + time + " Seconds");	
 
-		console.log(thisAttributeClass_1);
+		if ( time == 0  && thisAttributeClass != "clicked")
 
-
-		if ( time == 0  && thisAttributeClass_1 != "clicked")
-
- 			{ 	console.log("i'm inside if");
+ 			{ 	
  				 unAnswered++;
 
  				 clear_divs();
+
+				stop_running_question_clock();
+
+				stop_running();
+
+				pauseSong(z);
+
+				counterAnswerCheck = setInterval(clock_answer_check,1000);
+
 				$("#time_remaining").html("Time Remaining : " + time + " Seconds");	
 				$("#question").html("Sorry ! You're misguided !");
 				$("#answer_opt_1").html("The correct Answer was : " + question_array[z].correct_answer_value);
@@ -345,11 +428,6 @@ $(document).ready(function(){
 					stop_running_question_clock();
 				}
 
- 		// if ( time == 0  && thisAttributeClass_2 != "clicked")
-
- 		// 	{ 	console.log("i'm inside if");
- 		// 		 unAnswered++;
- 		// 	}
 
 	}
 
@@ -357,20 +435,15 @@ $(document).ready(function(){
 
 	function first_question() {
 
-		playSong(i)
-
-		console.log("i at beginning of first_question " + i);
-
 		//debugger;
+
+		playSong(i)
 
 		$("#time_remaining").html("Time Remaining : " + time + " Seconds");	
 
 		//debugger;
 
-		//	counter = setInterval(clock_question,1000);	
-
-
-		counter =	setInterval(function() { clock_question(i); }, 1000 );
+		counter = setInterval(function() { clock_question(i); }, 1000 );
 
 		$("#question").append(question_array[i].prompt);
 				 
@@ -387,29 +460,16 @@ $(document).ready(function(){
 		$("#answer_opt_1,#answer_opt_2,#answer_opt_3,#answer_opt_4" ).unbind().on("click", function()
 		
 			{	
-				//alert("i'm getting clicked without being clicked");
 				//debugger;
 				 thisAttributeId = ($(this).attr('id'));
 				correct_answer_check(i,thisAttributeId);
-				thisAttributeClass_1 = ($(this).attr('class'));
+				thisAttributeClass = ($(this).attr('class'));
 
 			 });
-
-		// if ( time == 0  && thisAttributeClass_1 != "clicked")
-
- 	// 		{ 	alert("i'm inside if");
- 	// 			 unAnswered++;
- 	// 		}
- 
-		console.log("correctAnswer is " + correctAnswer);
-		console.log("wrong Answer is " + wrongAnswer);
-		console.log("unAnswered is " + unAnswered);
 
 	}
 
 	
-
-
 	function question_change ()
 
 		{	//debugger;
@@ -431,8 +491,7 @@ $(document).ready(function(){
 			stop_running_question_clock();
 			time = 15;
 			//debugger;
-			//counter = setInterval(clock_question,1000);
-
+		
 			counter =	setInterval(function() { clock_question(k); }, 1000 );
 
 			clear_divs();
@@ -457,12 +516,11 @@ $(document).ready(function(){
 		$("#answer_opt_1,#answer_opt_2,#answer_opt_3,#answer_opt_4" ).unbind().on("click", function()
 		
 			{	//debugger;
-				//$(this).data('stuff', "true");
-
+		
 				thisAttributeId = ($(this).attr('id'));
 				correct_answer_check(k,thisAttributeId);
 
-				thisAttributeClass_2 = ($(this).attr('class'));
+				thisAttributeClass = ($(this).attr('class'));
 
 
 				if ( k >= question_array.length-1)   
@@ -474,23 +532,7 @@ $(document).ready(function(){
 
 			 });
 
- 			// if (time == 0  &&  thisAttributeClass_2 != "clicked")
-
- 			// {
- 			// 	 unAnswered++;
- 			// }
-
- 		console.log("correctAnswer is " + correctAnswer);
-		console.log("wrong Answer is " + wrongAnswer);
-		console.log("unAnswered is " + unAnswered);	
-
-		console.log(k);
-
-		
-				
 		}
-
-
 
 
  $("#start_button").on("click", function()
