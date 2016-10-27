@@ -11,7 +11,7 @@ var question_after;
 var counter;
 var counterAnswerCheck;
 var time = 15;
-var timeAnswerCheck = 2;
+var timeAnswerCheck = 4;
 
 var correctAnswer =0;
 var wrongAnswer = 0;
@@ -156,6 +156,7 @@ $(document).ready(function(){
 	if (x === 3 )
 
 	{		var audio = document.getElementById("miami82_audio");
+			audio.currentTime = 0;
 			audio.play();
 	}
 	if (x === 4 )
@@ -175,6 +176,7 @@ $(document).ready(function(){
 	if (x === 6 )
 
 	{		var audio = document.getElementById("morethanafeeling_audio");
+			audio.currentTime = 0;
 			audio.play();
 	}
 	if (x === 7 )
@@ -255,9 +257,11 @@ $(document).ready(function(){
 	function show_score () 
 
 	{
+		
 		// if useranswer correct, correct++;
 		// if useranswer wrong, wrong++;
 		// otherwise unanswered, unanswered++
+		pauseSong(8);
 		stop_running();
 		stop_running_question_clock();
 		stop_running_question_answer_clock();
@@ -338,12 +342,6 @@ $(document).ready(function(){
 	function correct_answer_check(x,y)
 
 	{	
-
-			console.log("correctAnswer is " + correctAnswer);
-			console.log("wrong Answer is " + wrongAnswer);
-			console.log("unAnswered is " + unAnswered);
-
-	
 		 	if ( y === (question_array[x].correct_answer)) 
 
 				{	//debugger;
@@ -355,15 +353,19 @@ $(document).ready(function(){
 
 				stop_running();
 
-				pauseSong(x);
-
 				counterAnswerCheck = setInterval(clock_answer_check,1000);
 
-				
 				$("#time_remaining").html("Time Remaining : " + time + " Seconds");	
 				$("#question").html("Correct !");
 
 				giphy_selector(x);
+
+				if ( k >= question_array.length-1)   
+					
+					{		
+					show_score();
+					stop_running_question_clock();
+					}
 
 				}
 	
@@ -377,16 +379,21 @@ $(document).ready(function(){
 
 				stop_running();
 
-				pauseSong(x);
-
 				counterAnswerCheck = setInterval(clock_answer_check,1000);
-
 
 				$("#time_remaining").html("Time Remaining : " + time + " Seconds");	
 				$("#question").html("Sorry ! You're misguided !");
 				$("#answer_opt_1").html("The correct Answer was : " + question_array[x].correct_answer_value);
 
 				giphy_selector(x);
+
+				if ( k >= question_array.length-1)   
+					
+					{		
+					show_score();
+					stop_running_question_clock();
+					}
+
 				}
 
 	}
@@ -399,7 +406,9 @@ $(document).ready(function(){
 		time--;
 		$("#time_remaining").html("Time Remaining : " + time + " Seconds");	
 
-		if ( time == 0  && thisAttributeClass != "clicked")
+		//&& thisAttributeClass != "clicked"
+
+		if ( time == 0 )
 
  			{ 	
  				 unAnswered++;
@@ -410,7 +419,7 @@ $(document).ready(function(){
 
 				stop_running();
 
-				pauseSong(z);
+				//pauseSong(z);
 
 				counterAnswerCheck = setInterval(clock_answer_check,1000);
 
@@ -418,17 +427,15 @@ $(document).ready(function(){
 				$("#question").html("Sorry ! You're misguided !");
 				$("#answer_opt_1").html("The correct Answer was : " + question_array[z].correct_answer_value);
 				giphy_selector(z);
- 			}
 
-
-		if (  time == 0 && k >= question_array.length-1)   
+				if (  time == 0 && k >= question_array.length-1)   
 					
 				{		
 					show_score();
 					stop_running_question_clock();
 				}
 
-
+ 			}
 	}
 
 
@@ -473,7 +480,9 @@ $(document).ready(function(){
 	function question_change ()
 
 		{	//debugger;
+			pauseSong(k);
 			k++;
+			playSong(k);
 
 			if ( k >= question_array.length-1)   
 					
@@ -484,14 +493,11 @@ $(document).ready(function(){
 				stop_running_question_clock();
 				}
 
-			console.log(" k at beginning of question_change "+ k);
-
-			playSong(k);
 
 			stop_running_question_clock();
 			time = 15;
-			//debugger;
-		
+			
+
 			counter =	setInterval(function() { clock_question(k); }, 1000 );
 
 			clear_divs();
@@ -519,16 +525,7 @@ $(document).ready(function(){
 		
 				thisAttributeId = ($(this).attr('id'));
 				correct_answer_check(k,thisAttributeId);
-
 				thisAttributeClass = ($(this).attr('class'));
-
-
-				if ( k >= question_array.length-1)   
-					
-				{		
-					show_score();
-					stop_running_question_clock();
-				}
 
 			 });
 
@@ -538,7 +535,6 @@ $(document).ready(function(){
  $("#start_button").on("click", function()
 
 		{
-
 			question_one = setTimeout(first_question,500);
 			question_after = setInterval(question_change, 16000);
 			$("#start_button").hide();

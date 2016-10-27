@@ -82,23 +82,16 @@ body	{
 }
 
 
-/*#answer_opt_1: hover,#answer_opt_2:hover,#answer_opt_3: hover,
-#answer_opt_4: hover 
+#answer_opt_1:hover , #answer_opt_2:hover , 
+#answer_opt_3:hover , #answer_opt_4:hover
 {
 
-	background-color: yellow;
-}*/
-
-/*#answer_opt_1: hover
-{
-
-	background-color: yellow;
+	background-color: orange;
+	
 }
-*/
-/*#answers_div:hover #answer_opt_1{
 
-	background-color: yellow;
-}*/
+
+
 
 #title,#Instructions
 {
